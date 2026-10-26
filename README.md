@@ -5,6 +5,13 @@ This keyboard remap is based on the [Xremap](https://github.com/k0kubun/xremap) 
 ![Gnome macOS Remap Icon](./resources/gnome-macos-remap-wayland.png#gh-light-mode-only)
 ![Gnome macOS Remap Icon](./resources/gnome-macos-remap-wayland-dark.png#gh-dark-mode-only)
 
+## What changed in this fork
+
+- disabled global replace of cmd/ctrl
+- only add essentials remaps
+- work nicely with macos's emac style line editing
+- exclude vscode(try this instead [MacOS Default Key Bindings](https://marketplace.visualstudio.com/items?itemName=MikeCunneen.default-keys-macos))
+
 ## How does it work?
 The script downloads the latest version of `xremap` for your architecture. [config.yml](config.yml) maps specific shortcuts without swapping Ctrl and Meta globally. A systemd user service runs the remapper. On Wayland, the Xremap GNOME extension identifies the active application.
 
@@ -22,6 +29,8 @@ Cmd means the Meta/Super key (the Command key on an Apple keyboard). Unlisted co
 | Ctrl+Left / Ctrl+Right | Native previous / next word |
 | Cmd+Left / Cmd+Right | Beginning / end of line (add Shift to select) |
 | Alt+Backspace | Delete previous word |
+| Cmd+Alt+V | GNOME notifications |
+| Cmd+Alt+S | GNOME quick settings |
 
 The application shortcuts include Firefox. Ctrl+A/E intentionally replace the application's native actions; use Cmd+A for select all. Xremap does not remap its generated Ctrl+A again, so Cmd+A still selects all.
 
@@ -31,7 +40,7 @@ GNOME Terminal, Console, and Ptyxis use Cmd+C/V for Ctrl+Shift+C/V and correspon
 
 Run `./install.sh` again from this checkout, then log out and back in if needed. It replaces the installed config and restarts the user service. It also restores GNOME and GNOME Terminal shortcut defaults changed by the old installer, including the Super overview key. Custom values for those settings will be reset; review the script before rerunning if you customized them. Existing XKB options are left untouched.
 
-This update uses GNOME's default shell shortcuts instead of the old Ctrl-based app switching, workspace, screenshot, and application-grid overrides. It no longer disables the lock-screen shortcut.
+This update uses GNOME's default shell shortcuts instead of the old Ctrl-based app switching, workspace, screenshot, and application-grid overrides. Notifications and quick settings move to Cmd+Alt+V and Cmd+Alt+S, leaving Cmd+V/S available to applications. It no longer disables the lock-screen shortcut. Uninstalling restores the default notification and quick-settings shortcuts.
 
 ## Prerequisities
 * Install Git and GNOME extensions `sudo <your-package-manager> install git gnome-shell-extensions`.
