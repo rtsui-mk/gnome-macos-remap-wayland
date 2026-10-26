@@ -4,7 +4,7 @@ keymap:
   - name: Application Command shortcuts
     exact_match: true
     application:
-      not: [org.gnome.Terminal, org.gnome.Console, org.gnome.Ptyxis]
+not: [ org.gnome.Terminal, org.gnome.Console, org.gnome.Ptyxis, code_code, Code, code ]
     remap:
       Super-A: Ctrl-A
       Super-C: Ctrl-C
@@ -22,7 +22,7 @@ keymap:
   - name: Previous and next word
     exact_match: true
     application:
-      not: [org.gnome.Terminal, org.gnome.Console, org.gnome.Ptyxis]
+not: [ org.gnome.Terminal, org.gnome.Console, org.gnome.Ptyxis, code_code, Code, code ]
     remap:
       Ctrl-A: Ctrl-Left
       Ctrl-E: Ctrl-Right
@@ -30,6 +30,8 @@ keymap:
       Ctrl-Shift-E: Ctrl-Shift-Right
   - name: Make ⌘← and ⌘→ work as Home and End (with Shift for selection)
     exact_match: true
+application:
+  not: [ code_code, Code, code ]
     remap:
       Super-Left: Home
       Super-Right: End
@@ -37,6 +39,8 @@ keymap:
       Shift-Super-Right: Shift-End
   - name: Delete word
     exact_match: true
+application:
+  not: [ code_code, Code, code ]
     remap:
       Alt-Backspace: Ctrl-Backspace
   - name: Nautilus (Files) shortcuts
@@ -49,7 +53,7 @@ keymap:
       Super-Backspace: Delete
       Shift-Super-Dot: Ctrl-H
       Shift-Super-G: Ctrl-L
-  - name: Terminal and Console Command shortcuts
+- name: Terminal, Console and Ptyxis Command shortcuts
     exact_match: true
     application:
       only: [org.gnome.Terminal, org.gnome.Console, org.gnome.Ptyxis]
