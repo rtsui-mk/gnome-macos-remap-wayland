@@ -111,10 +111,13 @@ for binding in toggle-tiled-left toggle-tiled-right; do
   gsettings reset org.gnome.mutter.keybindings "$binding"
 done
 
-for binding in toggle-message-tray toggle-overview toggle-application-view \
+for binding in toggle-overview toggle-application-view \
     screenshot show-screenshot-ui screenshot-window; do
   gsettings reset org.gnome.shell.keybindings "$binding"
 done
+
+gsettings set org.gnome.shell.keybindings toggle-message-tray "['<Super><Alt>v']"
+gsettings set org.gnome.shell.keybindings toggle-quick-settings "['<Super><Alt>s']"
 
 gsettings reset org.gnome.settings-daemon.plugins.media-keys screensaver
 

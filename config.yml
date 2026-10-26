@@ -16,6 +16,7 @@ not: [ org.gnome.Terminal, org.gnome.Console, org.gnome.Ptyxis, code_code, Code,
       Super-N: Ctrl-N
       Super-F: Ctrl-F
       Super-L: Ctrl-L
+      Super-S: Ctrl-S
       Super-Z: Ctrl-Z
       Super-Shift-Z: Ctrl-Shift-Z
       Super-Shift-T: Ctrl-Shift-T
@@ -31,7 +32,7 @@ not: [ org.gnome.Terminal, org.gnome.Console, org.gnome.Ptyxis, code_code, Code,
   - name: Make ⌘← and ⌘→ work as Home and End (with Shift for selection)
     exact_match: true
 application:
-  not: [ code_code, Code, code ]
+not: [ code_code, Code, code ]
     remap:
       Super-Left: Home
       Super-Right: End
@@ -40,7 +41,7 @@ application:
   - name: Delete word
     exact_match: true
 application:
-  not: [ code_code, Code, code ]
+not: [ code_code, Code, code ]
     remap:
       Alt-Backspace: Ctrl-Backspace
   - name: Nautilus (Files) shortcuts

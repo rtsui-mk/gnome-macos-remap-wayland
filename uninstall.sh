@@ -46,6 +46,7 @@ gsettings reset org.gnome.desktop.wm.keybindings switch-to-workspace-right
 
 # Paste in terminal (if set via Ctrl+V, not Shift+Ctrl+V) interferes with default GNOME show notification panel shortcut
 gsettings reset org.gnome.shell.keybindings toggle-message-tray
+gsettings reset org.gnome.shell.keybindings toggle-quick-settings
 
 # Toggle overview (with mac's F3 key)
 gsettings reset org.gnome.shell.keybindings toggle-overview
