@@ -6,7 +6,32 @@ This keyboard remap is based on the [Xremap](https://github.com/k0kubun/xremap) 
 ![Gnome macOS Remap Icon](./resources/gnome-macos-remap-wayland-dark.png#gh-dark-mode-only)
 
 ## How does it work?
-Script downloads the latest version of the `xremap` remapper for your architecture. Configuration file `config.yml` contains majority of the remapping instructions. On top of that the default GNOME shell and Mutter keybindings are modified. A systemd service is created and enabled for a particular user. Therefore after the install other users on the system will not be affected by the remap. 
+The script downloads the latest version of `xremap` for your architecture. [config.yml](config.yml) maps specific shortcuts without swapping Ctrl and Meta globally. A systemd user service runs the remapper. On Wayland, the Xremap GNOME extension identifies the active application.
+
+Cmd means the Meta/Super key (the Command key on an Apple keyboard). Unlisted combinations keep their native behavior. Tapping Super opens GNOME's overview.
+
+| Shortcut | Action |
+| --- | --- |
+| Cmd+A/C/V/X | Select all / copy / paste / cut |
+| Cmd+W/Q/T | Close tab / quit / new tab |
+| Cmd+N/F/L | New window / find / focus address bar |
+| Cmd+Z / Cmd+Shift+Z | Undo / redo |
+| Cmd+Shift+T | Reopen closed tab |
+| Ctrl+A / Ctrl+E | Previous / next word |
+| Ctrl+Shift+A / Ctrl+Shift+E | Select to previous / next word |
+| Ctrl+Left / Ctrl+Right | Native previous / next word |
+| Cmd+Left / Cmd+Right | Beginning / end of line (add Shift to select) |
+| Alt+Backspace | Delete previous word |
+
+The application shortcuts include Firefox. Ctrl+A/E intentionally replace the application's native actions; use Cmd+A for select all. Xremap does not remap its generated Ctrl+A again, so Cmd+A still selects all.
+
+GNOME Terminal, Console, and Ptyxis use Cmd+C/V for Ctrl+Shift+C/V and corresponding terminal shortcuts for Cmd+N/Q/T/W/F. Cmd+A sends the terminal's native Ctrl+A; physical Ctrl combinations, including Ctrl+C, Ctrl+D and Ctrl+A/E, remain unchanged for shells and terminal editors. Terminal select-all support depends on the terminal application.
+
+## Updating an existing installation
+
+Run `./install.sh` again from this checkout, then log out and back in if needed. It replaces the installed config and restarts the user service. It also restores GNOME and GNOME Terminal shortcut defaults changed by the old installer, including the Super overview key. Custom values for those settings will be reset; review the script before rerunning if you customized them. Existing XKB options are left untouched.
+
+This update uses GNOME's default shell shortcuts instead of the old Ctrl-based app switching, workspace, screenshot, and application-grid overrides. It no longer disables the lock-screen shortcut.
 
 ## Prerequisities
 * Install Git and GNOME extensions `sudo <your-package-manager> install git gnome-shell-extensions`.

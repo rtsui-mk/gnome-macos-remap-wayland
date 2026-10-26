@@ -1,111 +1,64 @@
 keypress_delay_ms: 10
 
-# `modmap` section
-# For key-to-key remapping (no combinations). Remapping a key to a modifier key (e.g. CapsLock to Control_L) is supported only in `modmap` section
-modmap:
-  - name: Make ⌘ act as Ctrl
-#    application:
-#      not: [org.gnome.Terminal, org.gnome.Console]
-    remap:
-      LeftCtrl: LeftMeta
-      LeftMeta: LeftCtrl
-      RightCtrl: RightMeta
-      RightMeta: RightCtrl
-# `keymap` section
-# For remapping a sequence of key combinations to another sequence of key combinations
 keymap:
-#  - name: Test
-#    remap:
-#      Shift-A: b
-  - name: Make ⌘← and ⌘→ work as Home and End (with Shift for selection)
+  - name: Application Command shortcuts
+    exact_match: true
+    application:
+      not: [org.gnome.Terminal, org.gnome.Console, org.gnome.Ptyxis]
     remap:
-      Ctrl-Left: Home
-      Ctrl-Right: End
-      Shift-Ctrl-Left: Shift-Home
-      Shift-Ctrl-Right: Shift-End
+      Super-A: Ctrl-A
+      Super-C: Ctrl-C
+      Super-V: Ctrl-V
+      Super-X: Ctrl-X
+      Super-W: Ctrl-W
+      Super-Q: Ctrl-Q
+      Super-T: Ctrl-T
+      Super-N: Ctrl-N
+      Super-F: Ctrl-F
+      Super-L: Ctrl-L
+      Super-Z: Ctrl-Z
+      Super-Shift-Z: Ctrl-Shift-Z
+      Super-Shift-T: Ctrl-Shift-T
+  - name: Previous and next word
+    exact_match: true
+    application:
+      not: [org.gnome.Terminal, org.gnome.Console, org.gnome.Ptyxis]
+    remap:
+      Ctrl-A: Ctrl-Left
+      Ctrl-E: Ctrl-Right
+      Ctrl-Shift-A: Ctrl-Shift-Left
+      Ctrl-Shift-E: Ctrl-Shift-Right
+  - name: Make ⌘← and ⌘→ work as Home and End (with Shift for selection)
+    exact_match: true
+    remap:
+      Super-Left: Home
+      Super-Right: End
+      Shift-Super-Left: Shift-Home
+      Shift-Super-Right: Shift-End
   - name: Delete word
+    exact_match: true
     remap:
       Alt-Backspace: Ctrl-Backspace
-  - name: Delete complete line # TODO - check on macOS. Not sure how to delete before and after cursor.
-    application:
-      not: org.gnome.Terminal
-    remap:
-      Ctrl-K: Ctrl-D
-#  TODO: Next word
-#  TODO: Previous word
   - name: Nautilus (Files) shortcuts
+    exact_match: true
     application:
       only: org.gnome.Nautilus
     remap:
-      Ctrl-Up: Alt-Up          # Go Up
-      Ctrl-Down: Enter         # Go Down. Using `Enter` here because `Alt-Down` does not open files, only goes down.
-      Ctrl-Backspace: Delete   # Move to Trash
-      Shift-Ctrl-Dot: Ctrl-H   # Show/Hide Hidden Files
-      Shift-Ctrl-G: Ctrl-L     # Enter Location
-      # Enter: F2              # Rename. Conflict when need to hit `Enter` in focused address bar.
-  - name: Terminal copy and paste and window management
-    application:
-      only: org.gnome.Terminal
-    remap:
-      Ctrl-C: Shift-Super-C
-      Ctrl-V: Shift-Super-V
-      Ctrl-T: Shift-Super-T
-      Ctrl-N: Shift-Super-N
-      Ctrl-W: Shift-Super-W
-      Ctrl-Q: Shift-Super-Q
-      Ctrl-F: Shift-Super-F
-  - name: Terminal and Console interrupt
+      Super-Up: Alt-Up
+      Super-Down: Enter
+      Super-Backspace: Delete
+      Shift-Super-Dot: Ctrl-H
+      Shift-Super-G: Ctrl-L
+  - name: Terminal and Console Command shortcuts
+    exact_match: true
     application:
       only: [org.gnome.Terminal, org.gnome.Console, org.gnome.Ptyxis]
     remap:
-      Super-C: Ctrl-C
-  - name: Terminal and Console - make Ctrl work in `nano` editor # keycombiner.com/collections/nano/
-    application:
-      only: [org.gnome.Terminal, org.gnome.Console, org.gnome.Ptyxis]
-    remap:
-      Super-Q: Ctrl-Q # Interferes with GNOME close window - not sure how to work around
-      Super-W: Ctrl-W
-      Super-E: Ctrl-E
-      Super-E: Ctrl-R
-      Super-T: Ctrl-T
-      Super-Y: Ctrl-Y
-      Super-U: Ctrl-U
-      Super-O: Ctrl-O
-      Super-P: Ctrl-P
-      Super-KEY_RIGHTBRACE: Ctrl-KEY_RIGHTBRACE
       Super-A: Ctrl-A
-      Super-S: Ctrl-S
-# How to implement a org.gnome.Terminal key combination that conflicts with some GNOME keybinding?
-# Make a script similar to the one below. Script unsets the GNOME keybinding, then sends keys, then restores keybinding back.
-      Super-D:
-        launch: ["sh", "~/.local/bin/terminal-console-ctrl-d.sh"]
-      Super-F: Ctrl-F
-      Super-G: Ctrl-G
-      Super-H: Ctrl-H
-      Super-J: Ctrl-J
-      Super-K: Ctrl-K
-      Super-L: Ctrl-L
-      Super-Z: Ctrl-Z
-      Super-X: Ctrl-X
-#     Super-C: Ctrl-C # declared in previous sections
-      Super-V: Ctrl-V
-      Super-B: Ctrl-B
-      Super-N: Ctrl-N
-      Super-KEY_SLASH: Ctrl-KEY_SLASH
-  - name: Console and Ptyxis shortcuts
-    application:
-      only: [org.gnome.Console, org.gnome.Ptyxis]
-    remap:
-      Ctrl-C: Ctrl-Shift-C # Copy text
-      Ctrl-V: Ctrl-Shift-V # Paste text
-      Ctrl-N: Ctrl-Shift-N # New window
-      Ctrl-Q: Ctrl-Shift-Q # Close window
-      Ctrl-T: Ctrl-Shift-T # New tab
-      Ctrl-W: Ctrl-Shift-W # Close tab
-      Ctrl-F: Shift-Ctrl-F # Find
-  - name: Eclipse context assist and switch header/source
-    application:
-      only: Eclipse
-    remap:
-      Super-KEY_SPACE: Alt-KEY_SPACE
-      Super-KEY_TAB: Alt-KEY_TAB
+      Super-C: Ctrl-Shift-C
+      Super-V: Ctrl-Shift-V
+      Super-N: Ctrl-Shift-N
+      Super-Q: Ctrl-Shift-Q
+      Super-T: Ctrl-Shift-T
+      Super-W: Ctrl-Shift-W
+      Super-F: Ctrl-Shift-F
