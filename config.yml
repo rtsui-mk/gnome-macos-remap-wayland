@@ -51,7 +51,12 @@ keymap:
     remap:
       Super-Up: Alt-Up
       Super-Down: Enter
-      Super-Backspace: Delete
+      Super-Backspace:
+        - press: LeftCtrl
+        - release: LeftCtrl
+        - Delete
+        - press: LeftCtrl
+        - release: LeftCtrl
       Shift-Super-Dot: Ctrl-H
       Shift-Super-G: Ctrl-L
   - name: Terminal, Console and Ptyxis Command shortcuts
