@@ -22,6 +22,8 @@ Cmd means the Meta/Super key (the Command key on an Apple keyboard). Unlisted co
 | Cmd+A/C/V/X | Select all / copy / paste / cut |
 | Cmd+W/Q/T | Close tab / quit / new tab |
 | Cmd+N/F/L | New window / find / focus address bar |
+| Cmd+, | Ctrl+, (preferences in apps that support it; VS Code excluded) |
+| Cmd+M | Minimize the focused window globally (Super+H also remains available) |
 | Cmd+Z / Cmd+Shift+Z | Undo / redo |
 | Cmd+Shift+T | Reopen closed tab |
 | Ctrl+A / Ctrl+E | Previous / next word |
@@ -42,7 +44,7 @@ The service uses `xremap --watch=device` to detect keyboards added or reconnecte
 
 Run `./install.sh` again from this checkout, then log out and back in if needed. It replaces the installed config and restarts the user service. It also restores GNOME and GNOME Terminal shortcut defaults changed by the old installer, including the Super overview key. Custom values for those settings will be reset; review the script before rerunning if you customized them. Existing XKB options are left untouched.
 
-This update uses GNOME's default shell shortcuts instead of the old Ctrl-based app switching, workspace, screenshot, and application-grid overrides. Notifications and quick settings move to Cmd+Alt+V and Cmd+Alt+S, leaving Cmd+V/S available to applications. It no longer disables the lock-screen shortcut. Uninstalling restores the default notification and quick-settings shortcuts.
+This update uses GNOME's default shell shortcuts instead of the old Ctrl-based app switching, workspace, screenshot, and application-grid overrides. Cmd+M minimizes the focused window. Notifications and quick settings move to Cmd+Alt+V and Cmd+Alt+S, leaving Cmd+V/S available to applications. It no longer disables the lock-screen shortcut. Uninstalling restores the default minimize, notification, and quick-settings shortcuts.
 
 ## Prerequisities
 * Install Git and GNOME extensions `sudo <your-package-manager> install git gnome-shell-extensions`.

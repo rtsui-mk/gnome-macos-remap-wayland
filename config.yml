@@ -1,6 +1,12 @@
 keypress_delay_ms: 10
 
 keymap:
+  - name: Application preferences
+    exact_match: true
+    application:
+      not: [ code_code, Code, code ]
+    remap:
+      Super-Comma: Ctrl-Comma
   - name: Application Command shortcuts
     exact_match: true
     application:

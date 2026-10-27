@@ -101,11 +101,13 @@ echo "INFO: Restoring GNOME keybinding defaults changed by older installs..."
 
 gsettings reset org.gnome.mutter overlay-key
 
-for binding in minimize show-desktop switch-applications switch-applications-backward \
+for binding in show-desktop switch-applications switch-applications-backward \
     switch-group switch-group-backward switch-input-source switch-input-source-backward \
     switch-to-workspace-left switch-to-workspace-right; do
   gsettings reset org.gnome.desktop.wm.keybindings "$binding"
 done
+
+gsettings set org.gnome.desktop.wm.keybindings minimize "['<Super>m', '<Super>h']"
 
 for binding in toggle-tiled-left toggle-tiled-right; do
   gsettings reset org.gnome.mutter.keybindings "$binding"
