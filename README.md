@@ -36,6 +36,8 @@ The application shortcuts include Firefox. Ctrl+A/E intentionally replace the ap
 
 GNOME Terminal, Console, and Ptyxis use Cmd+C/V for Ctrl+Shift+C/V and corresponding terminal shortcuts for Cmd+N/Q/T/W/F. Cmd+A sends the terminal's native Ctrl+A; physical Ctrl combinations, including Ctrl+C, Ctrl+D and Ctrl+A/E, remain unchanged for shells and terminal editors. Terminal select-all support depends on the terminal application.
 
+The service uses `xremap --watch=device` to detect keyboards added or reconnected while it is running, without a manual service restart.
+
 ## Updating an existing installation
 
 Run `./install.sh` again from this checkout, then log out and back in if needed. It replaces the installed config and restarts the user service. It also restores GNOME and GNOME Terminal shortcut defaults changed by the old installer, including the Super overview key. Custom values for those settings will be reset; review the script before rerunning if you customized them. Existing XKB options are left untouched.
