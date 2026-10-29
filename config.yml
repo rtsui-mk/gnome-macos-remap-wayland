@@ -1,7 +1,7 @@
 keypress_delay_ms: 10
 
 keymap:
-  - name: Application preferences
+  - name: Application preferencesQ
     exact_match: true
     application:
       not: [ code_code, Code, code ]
@@ -14,6 +14,8 @@ keymap:
     remap:
       Super-A: Ctrl-A
       Super-C: Ctrl-C
+      Super-O: Ctrl-O
+      Super-P: Ctrl-P
       Super-V: Ctrl-V
       Super-X: Ctrl-X
       Super-W: Ctrl-W
