@@ -19,7 +19,9 @@ Cmd means the Meta/Super key (the Command key on an Apple keyboard). Unlisted co
 
 | Shortcut | Action |
 | --- | --- |
-| Cmd+A/C/V/X | Select all / copy / paste / cut |
+| Cmd+A/C/V/X/Y | Select all / copy / paste / cut / redo |
+| Cmd+D | Duplicate / bookmark / other app-specific action |
+| Cmd+R | Refresh / reload |
 | Cmd+W/Q/T | Close tab / quit / new tab |
 | Cmd+N/F/L | New window / find / focus address bar |
 | Cmd+, | Ctrl+, (preferences in apps that support it; VS Code excluded) |
